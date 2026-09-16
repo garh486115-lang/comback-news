@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="COMBACK NEWS - ताज़ा खबरें, देश-दुनिया, राजनीति, खेल, मनोरंजन और टेक्नोलॉजी की खबरें।">
+<title>COMBACK NEWS | Latest Hindi News</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e31b23;--dark:#111827;--muted:#6b7280;--bg:#f4f5f7;--white:#fff;--border:#e5e7eb}
+body{font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:#171717;line-height:1.55}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{background:#111;color:#ddd;font-size:13px;padding:7px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:15px}
+.header{background:#fff;border-bottom:1px solid var(--border)}
+.header-main{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;font-size:32px;letter-spacing:-1.5px;color:var(--dark)}
+.logo span{color:var(--red)}
+.tagline{color:var(--muted);font-size:13px}
+.search{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;width:250px}
+.search input{border:0;outline:0;padding:11px;width:100%}
+.search button{border:0;background:var(--red);color:#fff;padding:0 15px;cursor:pointer}
+.nav{background:var(--dark);color:#fff}
+.nav .container{display:flex;align-items:center;overflow:auto}
+.nav a{padding:13px 16px;white-space:nowrap;font-size:15px}
+.nav a:hover,.nav a.active{background:var(--red)}
+.breaking{background:var(--red);color:#fff}
+.breaking .container{display:flex;align-items:center;min-height:40px}
+.breaking strong{background:#b90910;padding:8px 13px;margin-right:15px;white-space:nowrap}
+#ticker{white-space:nowrap;overflow:hidden}
+main{padding:25px 0 45px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+.card{background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 3px 12px rgba(0,0,0,.04)}
+.hero{position:relative;min-height:430px;background:linear-gradient(135deg,#222,#555);color:#fff;display:flex;align-items:flex-end;padding:28px}
+.hero .hero-content{position:relative;z-index:2}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(0,0,0,.88))}
+.hero .hero-content{max-width:680px}
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:bold;padding:4px 9px;border-radius:4px;margin-bottom:9px}
+.hero h1{font-size:34px;line-height:1.2;margin-bottom:9px}
+.meta{font-size:12px;color:#a1a1aa}
+.hero .meta{color:#ddd}
+.side{display:flex;flex-direction:column;gap:14px}
+.side-title,.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+.section-title h2,.side-title h2{font-size:22px;border-left:5px solid var(--red);padding-left:10px}
+.side-news{display:grid;grid-template-columns:105px 1fr;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.thumb{height:76px;border-radius:7px;background:linear-gradient(135deg,#d1d5db,#6b7280);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:11px}
+.side-news h3{font-size:15px;line-height:1.35}
+.content-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:30px}
+.news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.news-card{background:#fff;border:1px solid var(--border);border-radius:9px;overflow:hidden}
+.news-card .thumb{height:180px;border-radius:0}
+.news-card .body{padding:14px}
+.news-card h3{font-size:18px;line-height:1.35;margin:7px 0}
+.news-card p{font-size:13px;color:var(--muted)}
+.read{color:var(--red);font-size:13px;font-weight:bold;margin-top:10px;display:inline-block}
+.popular{background:#fff;border:1px solid var(--border);border-radius:9px;padding:16px}
+.popular-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
+.popular-item:last-child{border-bottom:0}
+.number{font-size:25px;font-weight:900;color:#d1d5db}
+.popular-item h3{font-size:15px;line-height:1.35}
+.newsletter{margin-top:22px;background:var(--dark);color:#fff;border-radius:10px;padding:22px}
+.newsletter h3{font-size:20px;margin-bottom:6px}
+.newsletter p{font-size:13px;color:#cbd5e1;margin-bottom:14px}
+.newsletter form{display:flex;gap:7px}
+.newsletter input{min-width:0;flex:1;padding:11px;border:0;border-radius:5px}
+.newsletter button{border:0;background:var(--red);color:#fff;padding:0 15px;border-radius:5px;font-weight:bold}
+footer{background:#0b0f17;color:#cbd5e1;padding:35px 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+footer h3{color:#fff;margin-bottom:10px}
+footer a{display:block;font-size:13px;margin:7px 0;color:#cbd5e1}
+.copyright{border-top:1px solid #26303f;margin-top:25px;padding-top:18px;font-size:12px;color:#94a3b8}
+#searchMessage{display:none;background:#fff;border:1px solid var(--border);padding:15px;border-radius:8px;margin-bottom:20px}
+@media(max-width:800px){
+ .header-main{height:auto;padding:15px 0;flex-wrap:wrap}.search{width:100%}.tagline{display:none}
+ .grid,.content-grid{grid-template-columns:1fr}.hero{min-height:360px}.hero h1{font-size:27px}
+ .news-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+ .topbar .container{font-size:11px}.logo{font-size:27px}.news-grid{grid-template-columns:1fr}
+ .hero{padding:20px}.hero h1{font-size:24px}.nav a{padding:11px 13px}
+ .breaking strong{font-size:12px;margin-right:8px}.footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>बुधवार, 16 सितंबर 2026</span>
+    <span>ताज़ा खबरें • भरोसेमंद जानकारी</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-main">
+    <div>
+      <a class="logo" href="#">COMBACK <span>NEWS</span></a>
+      <div class="tagline">हर खबर, आपकी नज़र में</div>
+    </div>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="खबर खोजें...">
+      <button type="submit">🔍</button>
+    </form>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container">
+    <a class="active" href="#">होम</a>
+    <a href="#latest">लेटेस्ट</a>
+    <a href="#desh">देश</a>
+    <a href="#rajya">राज्य</a>
+    <a href="#politics">राजनीति</a>
+    <a href="#business">बिजनेस</a>
+    <a href="#sports">खेल</a>
+    <a href="#entertainment">मनोरंजन</a>
+    <a href="#technology">टेक्नोलॉजी</a>
+  </div>
+</nav>
+
+<div class="breaking">
+  <div class="container">
+    <strong>BREAKING</strong>
+    <div id="ticker">देश-दुनिया की बड़ी खबरों और ताज़ा अपडेट के लिए COMBACK NEWS पढ़ते रहें...</div>
+  </div>
+</div>
+
+<main>
+<div class="container">
+  <div id="searchMessage"></div>
+
+  <section class="grid">
+    <article class="hero">
+      <div class="hero-content">
+        <span class="badge">मुख्य खबर</span>
+        <h1>भारत में डिजिटल न्यूज़ का नया दौर: बदल रही है खबर पढ़ने की आदत</h1>
+        <div class="meta">16 सितंबर 2026 • COMBACK NEWS डेस्क</div>
+      </div>
+    </article>
+
+    <aside>
+      <div class="side-title"><h2>ताज़ा खबरें</h2></div>
+      <div class="side">
+        <article class="side-news">
+          <div class="thumb">NEWS</div>
+          <div><span class="badge">देश</span><h3>नई तकनीक से समाचारों तक पहुंच हुई और आसान</h3><div class="meta">20 मिनट पहले</div></div>
+        </article>
+        <article class="side-news">
+          <div class="thumb">INDIA</div>
+          <div><span class="badge">राज्य</span><h3>शहरों में डिजिटल सेवाओं का विस्तार जारी</h3><div class="meta">45 मिनट पहले</div></div>
+        </article>
+        <article class="side-news">
+          <div class="thumb">TECH</div>
+          <div><span class="badge">टेक</span><h3>मोबाइल और AI की दुनिया में आए नए बदलाव</h3><div class="meta">1 घंटा पहले</div></div>
+        </article>
+      </div>
+    </aside>
+  </section>
+
+  <section class="content-grid" id="latest">
+    <div>
+      <div class="section-title"><h2>लेटेस्ट न्यूज़</h2><a class="read" href="#">सभी खबरें →</a></div>
+      <div class="news-grid" id="newsGrid">
+        <article class="news-card" data-title="AI तकनीक का बढ़ता प्रभाव">
+          <div class="thumb">TECHNOLOGY</div><div class="body"><span class="badge">टेक्नोलॉजी</span><h3>AI तकनीक का बढ़ता प्रभाव, डिजिटल दुनिया में हो रहे बड़े बदलाव</h3><p>नई तकनीकों ने काम, शिक्षा और डिजिटल कंटेंट के तरीके बदलने शुरू कर दिए हैं।</p><a class="read" href="#">पूरी खबर पढ़ें →</a></div>
+        </article>
+        <article class="news-card" data-title="भारतीय बाजार में नई संभावनाएं">
+          <div class="thumb">BUSINESS</div><div class="body"><span class="badge">बिजनेस</span><h3>भारतीय बाजार में नई संभावनाएं, डिजिटल कारोबार पर नजर</h3><p>ऑनलाइन सेवाओं और डिजिटल भुगतान के विस्तार से नए अवसर सामने आ रहे हैं।</p><a class="read" href="#">पूरी खबर पढ़ें →</a></div>
+        </article>
+        <article class="news-card" data-title="खेल जगत की बड़ी खबर">
+          <div class="thumb">SPORTS</div><div class="body"><span class="badge">खेल</span><h3>खेल जगत की बड़ी खबरें: खिलाड़ियों की तैयारी पर खास नजर</h3><p>प्रतियोगिताओं से पहले टीमों और खिलाड़ियों की तैयारियां तेज हो गई हैं।</p><a class="read" href="#">पूरी खबर पढ़ें →</a></div>
+        </article>
+        <article class="news-card" data-title="मनोरंजन जगत में नए प्रोजेक्ट">
+          <div class="thumb">ENTERTAINMENT</div><div class="body"><span class="badge">मनोरंजन</span><h3>मनोरंजन जगत में नए प्रोजेक्ट्स और डिजिटल कंटेंट का दौर</h3><p>OTT और डिजिटल प्लेटफॉर्म पर दर्शकों के लिए नए कंटेंट की तैयारी जारी है।</p><a class="read" href="#">पूरी खबर पढ़ें →</a></div>
+        </article>
+      </div>
+    </div>
+
+    <aside>
+      <div class="section-title"><h2>सबसे ज्यादा पढ़ी गई</h2></div>
+      <div class="popular">
+        <div class="popular-item"><div class="number">01</div><h3>आज की 10 बड़ी खबरें, एक नजर में जानिए पूरा अपडेट</h3></div>
+        <div class="popular-item"><div class="number">02</div><h3>टेक्नोलॉजी में आने वाले बदलावों पर विशेषज्ञों की नजर</h3></div>
+        <div class="popular-item"><div class="number">03</div><h3>बिजनेस और बाजार से जुड़े महत्वपूर्ण अपडेट</h3></div>
+        <div class="popular-item"><div class="number">04</div><h3>वीकेंड पर देखने के लिए नए मनोरंजन विकल्प</h3></div>
+      </div>
+      <div class="newsletter">
+        <h3>न्यूज़लेटर पाएं</h3>
+        <p>महत्वपूर्ण खबरें सीधे अपने ईमेल पर पाएं।</p>
+        <form onsubmit="subscribe(event)">
+          <input type="email" required placeholder="आपका ईमेल">
+          <button>सब्सक्राइब</button>
+        </form>
+      </div>
+    </aside>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><h3>COMBACK NEWS</h3><p style="font-size:13px">देश-दुनिया की खबरों को सरल और आधुनिक अंदाज में आप तक पहुंचाने वाला डिजिटल न्यूज़ पोर्टल।</p></div>
+      <div><h3>श्रेणियां</h3><a href="#">देश</a><a href="#">राज्य</a><a href="#">राजनीति</a><a href="#">खेल</a></div>
+      <div><h3>अन्य</h3><a href="#">हमारे बारे में</a><a href="#">संपर्क करें</a><a href="#">विज्ञापन</a></div>
+      <div><h3>कानूनी</h3><a href="#">Privacy Policy</a><a href="#">Disclaimer</a><a href="#">Terms & Conditions</a></div>
+    </div>
+    <div class="copyright">© 2026 COMBACK NEWS. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+const ticker = document.getElementById("ticker");
+const headlines = [
+ "देश-दुनिया की बड़ी खबरों और ताज़ा अपडेट के लिए COMBACK NEWS पढ़ते रहें...",
+ "टेक्नोलॉजी और AI की दुनिया में लगातार हो रहे नए बदलाव",
+ "बिजनेस, खेल और मनोरंजन की प्रमुख खबरें एक ही जगह"
+];
+let ti=0;
+setInterval(()=>{ti=(ti+1)%headlines.length;ticker.textContent=headlines[ti]},3500);
+
+document.getElementById("searchForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const q=document.getElementById("searchInput").value.trim().toLowerCase();
+  const cards=[...document.querySelectorAll(".news-card")];
+  const msg=document.getElementById("searchMessage");
+  if(!q){cards.forEach(c=>c.style.display="block");msg.style.display="none";return}
+  let count=0;
+  cards.forEach(c=>{
+    const match=c.dataset.title.toLowerCase().includes(q) || c.textContent.toLowerCase().includes(q);
+    c.style.display=match?"block":"none"; if(match)count++;
+  });
+  msg.style.display="block";
+  msg.textContent=count ? `"${q}" के लिए ${count} खबर मिली।` : `"${q}" के लिए कोई खबर नहीं मिली।`;
+  document.getElementById("latest").scrollIntoView({behavior:"smooth"});
+});
+
+function subscribe(e){
+  e.preventDefault();
+  alert("धन्यवाद! न्यूज़लेटर सब्सक्रिप्शन डेमो सफल रहा।");
+}
+</script>
+</body>
+</html>
